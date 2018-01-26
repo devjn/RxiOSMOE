@@ -36,12 +36,12 @@ dependencies {
 ext {
     publishedGroupId = 'com.github.devjn'
     libraryName = 'RxiOSMOE'
-    artifact = 'RxiOSMOE'
+    artifact = 'rxiosmoe'
     libraryDescription = 'Multi-OS Engine (MOE) specific bindings for RxJava 2.\n\n' +
             'This module adds the minimum classes to RxJava that make writing reactive components in MOE applications easy and hassle-free. More specifically, it provides a Scheduler that schedules on the main thread or any given Looper.'
 
     bintrayRepo = 'maven'
-    bintrayName = 'RxiOSMOE'
+    bintrayName = 'rxiosmoe'
 
     siteUrl = 'https://github.com/devjn/RxiOSMOE'
     gitUrl = 'https://github.com/devjn/RxiOSMOE'

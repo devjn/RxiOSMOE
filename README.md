@@ -16,7 +16,7 @@ This module adds the minimum classes to RxJava that make writing reactive compon
   ```
 
 ```groovy
-compile 'com.github.devjn:RxiOSMOE:2.0.1'
+compile 'com.github.devjn:rxiosmoe:2.0.1'
 // It is recommended you also explicitly depend on RxJava's latest version for bug fixes and new features.
 compile 'io.reactivex.rxjava2:rxjava:2.1.9'
 ```
@@ -24,11 +24,11 @@ compile 'io.reactivex.rxjava2:rxjava:2.1.9'
 ###### For Gradle 4+
 
 ```groovy
-implementation 'com.github.devjn:RxiOSMOE:2.0.1'
+implementation 'com.github.devjn:rxiosmoe:2.0.1'
 implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
 ```
 
-* RxiOSMOE: [![](https://jitpack.io/v/devjn/RxiOSMOE.svg)](https://jitpack.io/#devjn/RxiOSMOE)
+* RxiOSMOE:  [ ![JCenter](https://api.bintray.com/packages/devjn/maven/rxiosmoe/images/download.svg) ](https://bintray.com/devjn/maven/rxiosmoe/_latestVersion)
 * RxJava: <a href='http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.reactivex.rxjava2%22%20a%3A%22rxjava%22'><img src='http://img.shields.io/maven-central/v/io.reactivex.rxjava2/rxjava.svg'></a>
 
 # Usage
