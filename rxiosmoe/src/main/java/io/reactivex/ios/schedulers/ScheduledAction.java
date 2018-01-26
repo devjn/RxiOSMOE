@@ -29,20 +29,17 @@ final class ScheduledAction implements Runnable, Disposable {
 
     @Override
     public void run() {
-        nsBlockOperation.addExecutionBlock(new NSBlockOperation.Block_addExecutionBlock() {
-            @Override
-            public void call_addExecutionBlock() {
-                try {
-                    action.run();
-                } catch (Throwable e) {
-                    // nothing to do but print a System error as this is fatal and there is nowhere else to throw this
-                    IllegalStateException ie;
-                    ie = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", e);
-                    Thread thread = Thread.currentThread();
-                    thread.getUncaughtExceptionHandler().uncaughtException(thread, ie);
-                } finally {
-                    dispose();
-                }
+        nsBlockOperation.addExecutionBlock(() -> {
+            try {
+                action.run();
+            } catch (Throwable e) {
+                // nothing to do but print a System error as this is fatal and there is nowhere else to throw this
+                IllegalStateException ie;
+                ie = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", e);
+                Thread thread = Thread.currentThread();
+                thread.getUncaughtExceptionHandler().uncaughtException(thread, ie);
+            } finally {
+                dispose();
             }
         });
         operationQueue.addOperation(nsBlockOperation);

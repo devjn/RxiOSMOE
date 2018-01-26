@@ -5,8 +5,8 @@ buildscript {
     }
     dependencies {
         // Multi-OS Engine plugin
-        classpath group: 'org.multi-os-engine', name: 'moe-gradle', version: '1.3.+'
-
+        classpath group: 'org.multi-os-engine', name: 'moe-gradle', version: '1.4.+'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
 
@@ -29,7 +29,39 @@ repositories {
 test { exclude '**' }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
 }
+
+
+ext {
+    publishedGroupId = 'com.github.devjn'
+    libraryName = 'RxiOSMOE'
+    artifact = 'RxiOSMOE'
+    libraryDescription = 'Multi-OS Engine (MOE) specific bindings for RxJava 2.\n\n' +
+            'This module adds the minimum classes to RxJava that make writing reactive components in MOE applications easy and hassle-free. More specifically, it provides a Scheduler that schedules on the main thread or any given Looper.'
+
+    bintrayRepo = 'maven'
+    bintrayName = 'RxiOSMOE'
+
+    siteUrl = 'https://github.com/devjn/RxiOSMOE'
+    gitUrl = 'https://github.com/devjn/RxiOSMOE'
+
+    libraryVersion = '2.0.1'
+
+    developerId = 'devjn'
+    developerName = 'John'
+    developerEmail = 'devjn@jn-arts.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+task install {
+
+}
+
+apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/installjarv1.gradle'
+apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/bintrayv1.gradle'
+
+project.install.dependsOn publishToMavenLocal
